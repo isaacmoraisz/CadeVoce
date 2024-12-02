@@ -1,0 +1,27 @@
+server:
+  port: 8080
+
+spring:
+  thymeleaf:
+    cache: false
+    mode: HTML
+    encoding: UTF-8
+
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/cade_voce  # Verifique a porta e o nome do banco
+    username: postgres
+    password: root
+    driver-class-name: org.postgresql.Driver
+    initialize: true
+
+  sql:
+    init:
+      schema-locations: classpath:/schema-postgresql.sql  # Certifique-se de que o arquivo está no local correto
+      mode: always
+      platform: postgres
+  web:
+    resources:
+      cache:
+        period: 0
+      static-locations: file:src/main/resources/static/

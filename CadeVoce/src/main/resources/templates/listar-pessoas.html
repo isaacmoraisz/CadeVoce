@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Lista de Pessoas Desaparecidas</title>
+</head>
+<body>
+    <h1>Pessoas Desaparecidas</h1>
+    <a th:href="@{/pessoas/novo}">Adicionar Nova Pessoa</a>
+    <table>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Idade</th>
+                <th>Cidade</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="pessoa : ${pessoas}">
+                <td th:text="${pessoa.nome}"></td>
+                <td th:text="${pessoa.idade}"></td>
+                <td th:text="${pessoa.cidadeDesaparecimento}"></td>
+                <td>
+                    <a th:href="@{/pessoas/editar/{id}(id=${pessoa.id})}">Editar</a>
+                    <a th:href="@{/pessoas/excluir/{id}(id=${pessoa.id})}">Excluir</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

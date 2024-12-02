@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Cadastro de Pessoa</title>
+</head>
+<body>
+    <h1>Cadastro de Pessoa Desaparecida</h1>
+    <form th:action="@{/pessoas}" th:object="${pessoa}" method="post">
+        <label>Nome:</label>
+        <input type="text" th:field="*{nome}" /><br />
+        <label>Idade:</label>
+        <input type="number" th:field="*{idade}" /><br />
+        <label>Nome dos Pais:</label>
+        <input type="text" th:field="*{nomePais}" /><br />
+        <label>Cidade do Desaparecimento:</label>
+        <input type="text" th:field="*{cidadeDesaparecimento}" /><br />
+        <label>Data do Desaparecimento:</label>
+        <input type="date" th:field="*{dataDesaparecimento}" /><br />
+        <label>Descrição:</label>
+        <textarea th:field="*{descricao}"></textarea><br />
+        <label>Foto Antiga:</label>
+        <input type="file" name="fotoAntiga" /><br />
+        <label>Foto Atual:</label>
+        <input type="file" name="fotoAtual" /><br />
+        <button type="submit">Salvar</button>
+    </form>
+</body>
+</html>
